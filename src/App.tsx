@@ -3,8 +3,6 @@ import React from "react"
 import { movieList  } from "./services/requests"
 
 import Row from "./components/Row"
-import { title } from "process"
-
 
 function App(){
    return (
