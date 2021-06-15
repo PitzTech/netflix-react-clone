@@ -1,9 +1,13 @@
 import axios from "axios"
 
-const API_BASE = "https://api.themoviedb.org/3/"
+import { auth } from "../context/preferences"
 
 const connection = axios.create({
-	baseURL: API_BASE
+	baseURL: auth.BASE_URL,
+	headers: {
+		Authorization: `Bearer ${auth.ACCESS_TOKEN}`,
+		"Content-Type": "application/json;charset=utf-8"
+	}
 })
 
 export default connection

@@ -38,9 +38,9 @@
 		],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+		//"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
 		"prettier/prettier": [
-			"error",
+			"warn",
 			{
 				"trailingComma": "none",
 				"tabWidth": 3,
@@ -48,7 +48,7 @@
 				"semi": false,
 				"arrowParens": "avoid",
 				"jsxBracketSameLine": false,
-				"printWidth": 80
+				"printWidth": 90
 				//"bracketSpacing": false
 			}
 		]
