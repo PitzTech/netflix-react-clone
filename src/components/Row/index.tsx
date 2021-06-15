@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import MoviesContext from "../../context/movies"
 
 // Connection
 
@@ -16,11 +17,12 @@ import { MovieRow } from "./styles"
 
 function Row({ title, url }: MovieRequest): JSX.Element {
 	const [movies, setMovies] = useState<Movie[]>([])
+	//const { movies, setMovies } = useContext(MoviesContext)
 
 	useEffect(() => {
 		conn.get(url).then(response => {
 			setMovies(response.data.results)
-			console.log(response.data.results)
+			//console.log(response.data.results)
 		})
 	}, [url])
 
@@ -33,7 +35,7 @@ function Row({ title, url }: MovieRequest): JSX.Element {
 						movies.map((movie, key) => (
 							<div key={key} className="item">
 								<img
-									src={solvePosterUrl(movie.poster_path, 300)}
+									src={solvePosterUrl(movie.poster_path, "w300")}
 									alt={movie.name}
 								/>
 							</div>

@@ -1,12 +1,21 @@
-export interface Movie {
+export interface Genre {
 	name: string
-	original_title: string
+}
+export interface Movie {
+	id: number
+	name: string
+	original_name: string
 	poster_path: string
 	overview: string
+	genres?: Genre[]
+	backdrop_path: string
+	vote_average: number
+	number_of_seasons?: number
+	first_air_date?: string
 }
 
 export interface MovieRequest {
-	id?: string
+	id: string
 	title: string
 	url: string
 	movies?: Movie[]

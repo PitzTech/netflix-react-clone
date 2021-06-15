@@ -24,7 +24,7 @@
 		"indent": ["warn", "tab"],
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "double", { "allowTemplateLiterals": true }],
-		"semi": ["error", "never"],
+		"semi": ["warn", "never"],
 		"object-curly-spacing": ["error", "always"],
 		"no-empty-function": "off",
 		"@typescript-eslint/no-empty-function": ["warn"],
@@ -38,6 +38,7 @@
 		],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
+		"react/prop-types": ["warn", { "ignore": ["children"] }],
 		//"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
 		"prettier/prettier": [
 			"warn",

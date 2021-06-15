@@ -4,6 +4,9 @@ export default createGlobalStyle`
    :root {
       --background-color: #111;
       --text-color: #fff;
+      --gray-contrast: #4a4949;
+      --green-positive: #46d369;
+      --secondary-white: #bdbbbb //#999
    }
 
    * {

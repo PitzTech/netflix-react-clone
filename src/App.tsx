@@ -2,27 +2,34 @@ import React from "react"
 
 import { categoryList } from "./services/requests"
 
+// Context
+
+import { MoviesContextProvider } from "./context/movies"
+
 // Components
 
 import Banner from "./components/Banner"
 import Row from "./components/Row"
 
+// Visual
+
 import GlobalStyle from "./styles/global"
+import { MovieLists } from "./styles/home"
 
 const App: React.FC = () => {
 	return (
 		<>
-			<div className="page">
-				<Banner
-				//categoryUrl={categoryList.filter(category => category.id == "originals")}
-				/>
+			<MoviesContextProvider>
+				<div className="page">
+					<Banner categoryID="originals" />
 
-				<section className="movieLists">
-					{categoryList.map((movie, key) => (
-						<Row key={key} title={movie.title} url={movie.url} />
-					))}
-				</section>
-			</div>
+					<MovieLists>
+						{categoryList.map((movie, key) => (
+							<Row key={key} id={movie.id} title={movie.title} url={movie.url} />
+						))}
+					</MovieLists>
+				</div>
+			</MoviesContextProvider>
 			<GlobalStyle />
 		</>
 	)
