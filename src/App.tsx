@@ -8,6 +8,7 @@ import { MoviesContextProvider } from "./context/movies"
 
 // Components
 
+import Header from "./components/Header"
 import Banner from "./components/Banner"
 import Row from "./components/Row"
 
@@ -21,6 +22,8 @@ const App: React.FC = () => {
 		<>
 			<MoviesContextProvider>
 				<div className="page">
+					<Header />
+
 					<Banner categoryID="originals" />
 
 					<MovieLists>

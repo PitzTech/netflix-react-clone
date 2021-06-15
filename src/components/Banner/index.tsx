@@ -19,7 +19,14 @@ interface Props {
 function Banner({ categoryID }: Props): JSX.Element {
 	//const { movies, setMovies } = useContext(MoviesContext)
 	const [bannerData, setBannerData] = useState<Movie>()
+
 	const releaseDate = new Date(bannerData?.first_air_date || "")
+	const descriptionLong = bannerData?.overview.slice(0, 200)
+	const descriptionShort = descriptionLong?.slice(
+		0,
+		Math.min(descriptionLong?.length, descriptionLong?.lastIndexOf(" "))
+	)
+	const description = descriptionShort + "..."
 
 	const genres: string[] = []
 
@@ -71,7 +78,7 @@ function Banner({ categoryID }: Props): JSX.Element {
 							</p>
 						)}
 					</div>
-					<div className="description">{bannerData.overview}</div>
+					<div className="description">{description}</div>
 					<div className="buttons">
 						<a>► Assistir</a>
 						<a>+ Minha Lista</a>
