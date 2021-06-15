@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react"
 
+import { MovieRequest } from "../types/movies"
 import conn from "../services/connection"
 
-const Row = ({ movieData }: any) => {
-	const { title, url } = movieData
-
+function Row({ title, url }: MovieRequest): JSX.Element {
 	const [movies, setMovies] = useState([])
 
 	useEffect(() => {
 		conn.get(url).then(response => {
 			setMovies(response.data.results)
 		})
-	}, [])
+	}, [url])
 
 	return (
-		<div className="row">
-			{movies.map((movie, key) => (
-				<p key={key}>{movie["name"]}</p>
-			))}
+		<div>
+			<h1>{title}</h1>
+			<div></div>
 		</div>
 	)
 }

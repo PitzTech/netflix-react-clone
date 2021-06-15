@@ -8,9 +8,9 @@ const App: React.FC = () => {
 	return (
 		<div className="page">
 			<section className="moviesLists">
-				{movieList.map((item, key) => (
-					<div key={key}>{item.title}</div>
-				)}
+				{movieList.map((movie, key) => (
+					<Row key={key} title={movie.title} url={movie.url} />
+				))}
 			</section>
 		</div>
 	)

@@ -1,42 +1,84 @@
 import { solveParams } from "../utils/requestSolver"
+import { MovieRequest } from "../types/movies"
 
-export const movieList = {
+export const movieList: MovieRequest[] = [
 	/**
 	 * Movie Recommendation
 	 */
-	originals: {
+	{
 		title: "Originais Netflix",
 		url: solveParams("/discover/tv?with_network=213")
 	},
-	trending: {
+	{
 		title: "Recomendados",
-		params: solveParams("/trending/all/week")
+		url: solveParams("/trending/all/week")
 	},
-	topRated: {
+	{
 		title: "Em Alta",
-		params: solveParams("/movie/top_rated")
+		url: solveParams("/movie/top_rated")
 	},
 	/**
 	 * Movie Categories
 	 */
-	action: {
+	{
 		title: "Ação",
-		params: solveParams("/discover/movie?with_genres=28")
+		url: solveParams("/discover/movie?with_genres=28")
 	},
-	comedy: {
+	{
 		title: "Comédia",
-		params: solveParams("/discover/movie?with_genres=35")
+		url: solveParams("/discover/movie?with_genres=35")
 	},
-	horror: {
+	{
 		title: "Terror",
-		params: solveParams("/discover/movie?with_genres=27")
+		url: solveParams("/discover/movie?with_genres=27")
 	},
-	romance: {
+	{
 		title: "Romance",
-		params: solveParams("/discover/movie?with_genres=10749")
+		url: solveParams("/discover/movie?with_genres=10749")
 	},
-	documentary: {
+	{
 		title: "Documentários",
-		params: solveParams("/discover/movie?with_genres=99")
+		url: solveParams("/discover/movie?with_genres=99")
 	}
-}
+]
+
+// export const movieList: MovieRequestsList = {
+// 	/**
+// 	 * Movie Recommendation
+// 	 */
+// 	originals: {
+// 		title: "Originais Netflix",
+// 		url: solveParams("/discover/tv?with_network=213")
+// 	},
+// 	trending: {
+// 		title: "Recomendados",
+// 		url: solveParams("/trending/all/week")
+// 	},
+// 	topRated: {
+// 		title: "Em Alta",
+// 		url: solveParams("/movie/top_rated")
+// 	},
+// 	/**
+// 	 * Movie Categories
+// 	 */
+// 	action: {
+// 		title: "Ação",
+// 		url: solveParams("/discover/movie?with_genres=28")
+// 	},
+// 	comedy: {
+// 		title: "Comédia",
+// 		url: solveParams("/discover/movie?with_genres=35")
+// 	},
+// 	horror: {
+// 		title: "Terror",
+// 		url: solveParams("/discover/movie?with_genres=27")
+// 	},
+// 	romance: {
+// 		title: "Romance",
+// 		url: solveParams("/discover/movie?with_genres=10749")
+// 	},
+// 	documentary: {
+// 		title: "Documentários",
+// 		url: solveParams("/discover/movie?with_genres=99")
+// 	}
+// }
