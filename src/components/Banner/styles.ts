@@ -96,6 +96,7 @@ export const BannerContainer = styled.section<BannerProps>`
 			margin-top: 1rem;
 
 			color: var(--secondary-white);
+
 			font-size: 1.2rem;
 		}
 	}
