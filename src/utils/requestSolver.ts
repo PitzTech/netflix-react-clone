@@ -1,9 +1,9 @@
 import preferences, { auth } from "../context/preferences"
 
-const prefs = `&api_key=${auth.API_KEY}&language=${preferences.language}`
+const paramPrefs = `&api_key=${auth.API_KEY}&language=${preferences.language}`
 
 export function solveParams(params: string): string {
-	const newUrl = params + prefs
+	const newUrl = params + paramPrefs
 
 	return newUrl
 }
@@ -16,8 +16,8 @@ export function solvePosterUrl(file_path: string, image_size: string): string {
 
 export function solveGenreUrl(movieID: number, type: string): string {
 	if (movieID) {
-		if (type == "movie") return `/movie/${movieID}?${prefs}`
-		if (type == "tv") return `/tv/${movieID}?${prefs}`
+		if (type == "movie") return `/movie/${movieID}?${paramPrefs}`
+		if (type == "tv") return `/tv/${movieID}?${paramPrefs}`
 	}
 	return ""
 }
