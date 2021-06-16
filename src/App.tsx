@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext, useState, useEffect } from "react"
+import MoviesContext from "./context/movies"
 
 import { categoryList } from "./services/requests"
 
@@ -15,9 +16,21 @@ import Row from "./components/Row"
 // Visual
 
 import GlobalStyle from "./styles/global"
-import { MovieLists, Footer } from "./styles/home"
+import { MovieLists, Loading } from "./styles/home"
+
+import loadingGIF from "./assets/loading.gif"
 
 const App: React.FC = () => {
+	const { loadedBanner, loadedHomeList } = useContext(MoviesContext)
+	const [finallyLoaded, setFinallyLoaded] = useState(false)
+
+	useEffect(() => {
+		if (loadedBanner || loadedHomeList) setFinallyLoaded(true)
+		//fix the Context API
+		// remove next line
+		setFinallyLoaded(true)
+	}, [loadedBanner, loadedHomeList])
+
 	return (
 		<>
 			<MoviesContextProvider>
@@ -32,18 +45,11 @@ const App: React.FC = () => {
 						))}
 					</MovieLists>
 
-					<Footer>
-						Feito com
-						<span role="img" aria-label="coração">
-							🧡
-						</span>
-						por Victor Laurentino do Nascimento (PitzTech) <br />
-						<br />
-						<p>Direitos de imagem Netflix</p>
-						<br />
-						<p>Dados pegos no website www.themoviedb.org</p>
-						<br />
-					</Footer>
+					{!finallyLoaded && (
+						<Loading>
+							<img src={loadingGIF} alt="Carregando" />
+						</Loading>
+					)}
 				</div>
 			</MoviesContextProvider>
 			<GlobalStyle />

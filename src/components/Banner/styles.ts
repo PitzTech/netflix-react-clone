@@ -61,11 +61,11 @@ export const BannerContainer = styled.section<BannerProps>`
 		div.buttons {
 			margin-top: 1rem;
 			cursor: pointer;
+			font-size: 1.4rem;
 
 			& * {
 				display: inline-block;
 
-				font-size: 1.4rem;
 				font-weight: bold;
 
 				padding: 1rem 1.55rem;
@@ -97,6 +97,38 @@ export const BannerContainer = styled.section<BannerProps>`
 
 			color: var(--secondary-white);
 			font-size: 1.2rem;
+		}
+	}
+
+	@media (max-width: 760px) {
+		height: 90vh;
+
+		div.verticalFade {
+			padding-right: 2rem;
+
+			div.description {
+				max-width: 100%;
+				margin-top: 2rem;
+			}
+
+			div.buttons {
+				font-size: 2rem;
+				display: flex;
+
+				margin-top: 2rem;
+
+				padding: 0 2rem;
+
+				justify-content: space-between;
+
+				& * {
+					margin: 0;
+				}
+			}
+
+			div.genres {
+				margin-top: 2rem;
+			}
 		}
 	}
 `

@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react"
+import MoviesContext from "../../context/movies"
 
-import { solveGenreUrl, solvePosterUrl } from "../../utils/requestSolver"
-import { categoryList } from "../../services/requests"
 import { Movie } from "../../types/movies"
 
 // Connection
 
 import conn from "../../services/connection"
+import { solveGenreUrl, solvePosterUrl } from "../../utils/requestSolver"
+import { categoryList } from "../../services/requests"
 
 // Visual
 
@@ -19,6 +20,8 @@ interface Props {
 function Banner({ categoryID }: Props): JSX.Element {
 	//const { movies, setMovies } = useContext(MoviesContext)
 	const [bannerData, setBannerData] = useState<Movie>()
+
+	const { setLoadedBanner } = useContext(MoviesContext)
 
 	const releaseDate = new Date(bannerData?.first_air_date || "")
 	const descriptionLong = bannerData?.overview.slice(0, 200)
@@ -56,7 +59,7 @@ function Banner({ categoryID }: Props): JSX.Element {
 				const completeData: Movie = response.data
 
 				setBannerData(completeData)
-				console.log(completeData)
+				setLoadedBanner(true)
 			})
 		})
 	}, [categoryID])
