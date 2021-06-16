@@ -15,7 +15,7 @@ import Row from "./components/Row"
 // Visual
 
 import GlobalStyle from "./styles/global"
-import { MovieLists } from "./styles/home"
+import { MovieLists, Footer } from "./styles/home"
 
 const App: React.FC = () => {
 	return (
@@ -31,6 +31,19 @@ const App: React.FC = () => {
 							<Row key={key} id={movie.id} title={movie.title} url={movie.url} />
 						))}
 					</MovieLists>
+
+					<Footer>
+						Feito com
+						<span role="img" aria-label="coração">
+							🧡
+						</span>
+						por Victor Laurentino do Nascimento (PitzTech) <br />
+						<br />
+						<p>Direitos de imagem Netflix</p>
+						<br />
+						<p>Dados pegos no website www.themoviedb.org</p>
+						<br />
+					</Footer>
 				</div>
 			</MoviesContextProvider>
 			<GlobalStyle />
